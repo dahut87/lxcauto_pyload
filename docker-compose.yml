@@ -1,0 +1,17 @@
+---
+version: "2"
+services:
+  pyload:
+    image: linuxserver/pyload:0.5.0-ng
+    container_name: pyload
+    environment:
+      - PUID=1002
+      - PGID=1002
+      - TZ=Europe/Paris
+    volumes:
+      - /srv/data:/config
+      - /srv/media/videos/telechargement:/downloads
+    ports:
+      - 80:8000
+#      - 7227:7227 #optional
+    restart: unless-stopped
