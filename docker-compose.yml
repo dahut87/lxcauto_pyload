@@ -4,6 +4,7 @@ services:
   pyload:
     image: linuxserver/pyload:0.5.0-ng
     container_name: pyload
+    network_mode: host
     environment:
       - PUID=1002
       - PGID=1002
@@ -11,7 +12,7 @@ services:
     volumes:
       - /srv/data:/config
       - /srv/media/videos/telechargement:/downloads
-    ports:
-      - 80:8000
+#    ports:
+#      - 80:8000
 #      - 7227:7227 #optional
-    restart: unless-stopped
+    restart: always
